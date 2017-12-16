@@ -1,0 +1,30 @@
+<configuration>
+
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%gray(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %cyan(%logger{36}): %msg%n%ex{full}
+			</Pattern>
+		</layout>
+	</appender>
+
+	<!-- To log the SQL scripts loaded by Spring Boot, enable debug for org.springframework.jdbc -->
+	<logger name="org.springframework.jdbc" level="warn" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="com.zaxxer" level="warn" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="com.rabbithole.hikaricp" level="info" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>

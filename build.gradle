@@ -1,0 +1,66 @@
+
+buildscript {
+	ext {
+		springBootVersion = "1.5.6.RELEASE"
+		lombokVersion = "1.16.18"
+		apacheCommonsLangVersion="3.6"
+		hikaricpVersion="2.6.3"
+		mysqlConnectorVersion="5.1.40"
+		// junitVersion="4.12"
+	}
+	
+	repositories {
+		mavenCentral()
+	}
+	
+	dependencies {
+		// Spring Boot gradle plugin
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "org.springframework.boot"
+
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+jar {
+    baseName = "rh-hikaricp"
+    version =  "0.1"
+}
+
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	
+	// Spring Boot starter for JDBC ...
+	compile("org.springframework.boot:spring-boot-starter-jdbc") {
+		// ... excluding "tomcat-jdbc" to activate HikariCP
+		exclude group: "org.apache.tomcat", module: "tomcat-jdbc"
+	}
+	
+	// Apache Commons
+	compile("org.apache.commons:commons-lang3:${apacheCommonsLangVersion}")
+	
+	// HikariCP
+	compile("com.zaxxer:HikariCP:${hikaricpVersion}")
+	
+	// MySQL
+	compile("mysql:mysql-connector-java:${mysqlConnectorVersion}")
+	
+	// Lombok
+	compileOnly("org.projectlombok:lombok:${lombokVersion}")
+	
+	
+	// Testing
+	// testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+	// testCompile("org.springframework.boot:spring-boot-starter-test")
+	// testCompile("junit:junit:${junitVersion}")
+}

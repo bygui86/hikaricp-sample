@@ -1,0 +1,31 @@
+
+---[ RH - HikariCP - Links ]---
+
+
+---[ Theory
+
+DONE
+-
+
+IN PROGRESS
+-
+
+TODO
+-
+
+
+---[ Frameworks/Platforms
+
+-
+
+
+---[ Code
+
+http://www.mkyong.com/spring-boot/spring-boot-jdbc-mysql-hikaricp-example/
+https://stackoverflow.com/questions/26490967/how-do-i-configure-hikaricp-in-my-spring-boot-app-in-my-application-properties-f
+https://discuss.gradle.org/t/how-to-exclude-transitive-dependency/2119/3
+
+
+---[ Repo
+
+-
